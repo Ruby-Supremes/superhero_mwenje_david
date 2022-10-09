@@ -9,7 +9,11 @@ class HeroPowersController < ApplicationController
 
     def create
         hero_power = HeroPower.create(hero_powers_params)
-        render json: hero_power, status: :created
+        if hero_power
+            render json: hero_power, status: :created
+        else
+            render json: { error: "validation errors" }, status: :unprocessable_entity
+        end
     end
     
     def destroy

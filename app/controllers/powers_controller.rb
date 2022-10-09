@@ -3,13 +3,34 @@ class PowersController < ApplicationController
         render json: Power.all
     end
 
+
     def show
-        render json: find_power
+        power = find_power
+        if power
+            render json: power
+        else
+            render json: { error: "Power not found" }, status: :not_found
+        end
     end
 
     def create
         power = Power.create(power_params)
         render json: power, status: :created
+    end
+
+    def update
+        power = find_power
+        if power
+            power_update = power.update(power_params)
+            if power_update
+                render json: power, status: :accepted
+            else
+                render json: { error: "validation errors" }, status: :unprocessable_entity
+            end
+        else
+            render json: { error: "Power not found" }, status: :not_found
+        end
+    
     end
 
     def destroy

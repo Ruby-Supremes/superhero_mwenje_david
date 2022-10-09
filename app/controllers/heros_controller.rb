@@ -4,7 +4,12 @@ class HerosController < ApplicationController
     end
 
     def show
-        render json: find_hero
+        hero = find_hero
+        if hero
+            render json: hero
+        else
+            render json: { error: "Hero not found" }, status: :not_found
+        end
     end
 
     def create
