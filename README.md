@@ -11,7 +11,13 @@ Things you may want to cover:
 
 Ruby 2.7.0
 
-* System dependencies
+* live Link
+(https://stark-thicket-82157.herokuapp.com/)
+
+* access
+    /heros
+    /powers
+    /hero_powers
 
 * Configuration
 
@@ -23,6 +29,7 @@ gem 'active_model_serializers'
 sample seed data
 puts "start seeding"
 
+```ruby
 hero1 = Hero.create(
     name: "Wilbert Green",
     super_name: "Hulk"
@@ -67,12 +74,13 @@ heropower2 = HeroPower.create(
 )
 
 puts "end seeding"
+```
 
 * Database initialization
 
->rails db:migrate
+`rails db:migrate`
 
->rails db:seed
+`rails db:seed`
 
 * Services (job queues, cache servers, search engines, etc.)
 
@@ -81,16 +89,16 @@ puts "end seeding"
 * ...
 
 #step 1
-created the models, controllers and migration files using the rails resource generator
-
+> created the models, controllers and migration files using the rails resource generator
+***
 #step 2
-created the tables with appropriate field the run migration
-
+> created the tables with appropriate field the run migration
+***
 #step 3
-created validations, associations between the models and then populated the database using sample seed data
-
+> created validations, associations between the models and then populated the database using sample seed data
+***
 #step 4
-created the routes and added the fetch methods
-
+> created the routes and added the fetch methods
+***
 #step 5
-added error handling messaged and responses
+> added error handling messaged and responses
